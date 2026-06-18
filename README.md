@@ -7,3 +7,5 @@ Group Members:
 - Hardian Tri Pamungkas [(Github: Klontong24)](https://github.com/Klontong24)
 - Maulidan Imtinan Ahmada [(Github: maulidaann)](https://github.com/maulidaann)
 
+Diagram block:
+ - BB-PD [Documentation](doc/bbpd.md)
