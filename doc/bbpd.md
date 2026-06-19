@@ -33,6 +33,8 @@
   This DFF is used to capture the reference signal 
 - dff_down: ( @(posedge tdiv or negedge ff_rst) )
   - **Type:** always
+  - **Description**
+  This DFF is used to capture the division signal (signal from clk_div) 
 - priority_encoder: ( @(posedge q_div or negedge rst_n) )
   - **Type:** always
   - **Description**

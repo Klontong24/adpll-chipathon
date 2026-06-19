@@ -21,7 +21,7 @@ module bbpd(
             q_ref <= 1'b1;
     end
 
-    //This DFF is used to capture the division signal (signal from clk_div)
+    //! This DFF is used to capture the division signal (signal from clk_div)
     always @(posedge tdiv or negedge ff_rst) begin: dff_down
         if (~ff_rst)
             q_div <= 1'b0;
