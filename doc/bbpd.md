@@ -22,8 +22,8 @@
 
 | Name   | Type | Description                    |
 | ------ | ---- | ------------------------------ |
-| q_ref  | reg  | FF output from captured signal |
-| q_div  | reg  | FF output from captured signal |
+| q_up   | reg  | FF output from captured signal |
+| q_down | reg  | FF output from captured signal |
 | ff_rst | wire | combinational reset            |
 
 ## Processes
@@ -35,7 +35,7 @@
   - **Type:** always
   - **Description**
   This DFF is used to capture the division signal (signal from clk_div) 
-- priority_encoder: ( @(posedge q_div or negedge rst_n) )
+- priority_encoder: ( @(posedge q_down or negedge rst_n) )
   - **Type:** always
   - **Description**
   This DFF act as "priority encoder", which one is more faster, tref or tdiv 
