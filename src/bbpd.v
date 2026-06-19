@@ -10,34 +10,34 @@ module bbpd(
     output reg te //! signal output e[k]
 );
 
-    reg q_ref, q_div; //! FF output from captured signal
+    reg q_up, q_down; //! FF output from captured signal
     wire ff_rst; //! combinational reset
 
     //! This DFF is used to capture the reference signal
     always @(posedge tref or negedge ff_rst) begin: dff_up
         if (~ff_rst)
-            q_ref <= 1'b0;
+            q_up <= 1'b0;
         else
-            q_ref <= 1'b1;
+            q_up <= 1'b1;
     end
 
     //! This DFF is used to capture the division signal (signal from clk_div)
     always @(posedge tdiv or negedge ff_rst) begin: dff_down
         if (~ff_rst)
-            q_div <= 1'b0;
+            q_down <= 1'b0;
         else
-            q_div <= 1'b1;
+            q_down <= 1'b1;
     end
 
     //! This DFF act as "priority encoder", which one is more faster, tref or tdiv
-    always @(posedge q_div or negedge rst_n) begin: priority_encoder
+    always @(posedge q_down or negedge rst_n) begin: priority_encoder
         if (~rst_n)
             te <= 1'b0;
         else
-            te <= q_ref;
+            te <= q_up;
     end
 
-    assign ff_rst = ~(~(tref & tdiv) | rst_n); //! NAND and NOR to combine the reset signal
+    assign ff_rst = ~((q_down & q_up) | ~rst_n); //! combine the reset signal
 
 endmodule
 
