@@ -16,6 +16,7 @@
 
 ### Bang-Bang Phase Detector (BB-PD)
 **[Documentation](doc/bbpd.md)**
+
 It is called a "bang-bang" phase detector because its operation is binary, producing only UP or DOWN decisions rather than a continuous-valued output. The term "bang-bang" originates from control theory, where a controller switches directly between discrete states instead of making gradual adjustments.
 
 This block acts as the eye of the ADPLL, providing coarse sensing of the incoming reference clock (`tref`) and the feedback clock from the divider (`tdiv`), which is derived from the DCO output. 
