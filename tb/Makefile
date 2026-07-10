@@ -1,4 +1,4 @@
-FILE = dlf_pi
+FILE = clk_div
 
 sim: ../src/$(FILE).v $(FILE)_tb.v
 	 iverilog -o $(FILE)_tb.vvp $(FILE)_tb.v ../src/$(FILE).v
@@ -6,4 +6,6 @@ sim: ../src/$(FILE).v $(FILE)_tb.v
 
 wave: $(FILE)_tb.vvp
 	 gtkwave $(FILE)_tb.vcd
+clean:
+	rm -rf *.vvp *.vcd
 
