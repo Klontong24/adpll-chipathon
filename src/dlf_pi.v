@@ -1,5 +1,5 @@
 // CHIPATHON 2026
-//! @title LFSR Generator for Dithering
+//! @title DLF-PI Controller
 //! @author Muhammad Shofuwan Anwar, Ferhad Zulfas, Hardian Tri Pamungkas, Maulidan Imtinan Ahmada
 
 module dlf_pi #(

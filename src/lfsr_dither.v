@@ -41,6 +41,6 @@ module lfsr_dither #(
 
     assign raw = state[OUT_W-1:0];
 
-    assign dither = (raw <<< cfg_amp_shift) >>> cfg_amp_shift;  //! Rescale amplitude
+    assign dither = raw >>> cfg_amp_shift;
 
 endmodule

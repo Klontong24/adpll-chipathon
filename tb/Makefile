@@ -1,4 +1,4 @@
-FILE = bbpd
+FILE = lfsr_dither
 
 sim: ../src/$(FILE).v $(FILE)_tb.v
 	 iverilog -o $(FILE)_tb.vvp $(FILE)_tb.v ../src/$(FILE).v
