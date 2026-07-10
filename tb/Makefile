@@ -1,4 +1,4 @@
-FILE = lfsr_dither
+FILE = dlf_pi
 
 sim: ../src/$(FILE).v $(FILE)_tb.v
 	 iverilog -o $(FILE)_tb.vvp $(FILE)_tb.v ../src/$(FILE).v
