@@ -35,16 +35,11 @@ module dco #(
     generate
         for (i = 1; i < NUM_STAGES; i = i + 1) begin : gen_delay_line
             
-            // Macro to separate simulation behavior (needs delay) from physical synthesis (no delay)
             `ifdef IVERILOG_SIM
-                // First inversion step (Simulation)
                 assign #1 intermediate_nodes[i] = ~delay_chain[i-1];
-                // Second inversion step (Simulation)
                 assign #1 delay_chain[i] = ~intermediate_nodes[i];
             `else
-                // First inversion step (Synthesis)
                 assign intermediate_nodes[i] = ~delay_chain[i-1];
-                // Second inversion step (Synthesis)
                 assign delay_chain[i] = ~intermediate_nodes[i];
             `endif
 
